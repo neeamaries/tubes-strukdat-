@@ -5,7 +5,7 @@
 using namespace std;
 
 /* ================= DATA ================= */
-
+//anjay
 struct Aktor {
     string idAktor;
     string nama;
