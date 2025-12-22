@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-/* ===================== DATA ===================== */
-// Parent TANPA relasi
+/* ================= DATA ================= */
+//anjay
 struct Aktor {
     string idAktor;
     string nama;

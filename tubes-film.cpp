@@ -6,7 +6,7 @@ void createListFilm(ListFilm &LF) { }
 void createListRelasi(ListRelasi &LR) { }
 
 /* ================= ALOKASI ================= */
-adrAktor newAktor(Aktor data) { }
+adrAktor newAktor(ListAktor data) { }
 adrFilm newFilm(Film data) { }
 adrRelasi newRelasi(adrFilm f, adrAktor a) { }
 
