@@ -85,22 +85,22 @@ int main() {
        MENU PROGRAM
        ==================================================== */
     int pilih;
-    do {
-        cout << "\n===== MENU DATA PERFILMAN =====\n";
-        cout << "1. Insert FIRST Aktor / Aktris\n";
-        cout << "2. Insert LAST  Aktor / Aktris\n";
-        cout << "3. Insert FIRST Film\n";
-        cout << "4. Insert LAST  Film\n";
-        cout << "5. Hubungkan Aktor/Aktris dengan Film\n";
-        cout << "6. Hapus Aktor/Aktris tertentu\n";
-        cout << "7. Hapus Film tertentu\n";
-        cout << "8. Tampilkan seluruh film beserta aktor/aktris\n";
-        cout << "9. Tampilkan film oleh aktor/aktris tertentu\n";
-        cout << "10. Tampilkan aktor/aktris pada film tertentu\n";
-        cout << "11. Tampilkan aktor & aktris paling top\n";
-        cout << "12. Keluar\n";
-        cout << "Pilih: ";
-        cin >> pilih;
+do {
+    cout << "\n===== MENU DATA PERFILMAN =====\n";
+    cout << "1. Insert FIRST Aktor / Aktris\n";
+    cout << "2. Insert LAST  Aktor / Aktris\n";
+    cout << "3. Insert FIRST Film\n";
+    cout << "4. Insert LAST  Film\n";
+    cout << "5. Penentuan relasi aktor/aktris dan film\n";
+    cout << "6. Menghapus data aktor/aktris tertentu\n";
+    cout << "7. Menghapus data film tertentu\n";
+    cout << "8. Menampilkan seluruh film beserta aktor/aktris\n";
+    cout << "9. Menampilkan film yang dibintangi aktor/aktris tertentu\n";
+    cout << "10. Menampilkan aktor/aktris yang membintangi film tertentu\n";
+    cout << "11. Menampilkan aktor & aktris paling top\n";
+    cout << "12. Keluar\n";
+    cout << "Pilih: ";
+    cin >> pilih;
 
         switch (pilih) {
             case 1:
