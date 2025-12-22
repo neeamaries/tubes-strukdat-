@@ -1,7 +1,9 @@
 #include "tubes-film.h"
 
-/* ================= PRIMITIF ================= */
-void createListAktor(ListAktor &LA) { } // nevy 
+void createListAktor(ListAktor &LA) {
+    
+ } 
+
 void createListFilm(ListFilm &LF) { } // nevy 
 void createListRelasi(ListRelasi &LR) { } // nevy 
 
