@@ -11,7 +11,7 @@ int main() {
 
     int pilih;
     int pilih;
-do {
+    do {
     cout << "\n===== MENU DATA PERFILMAN =====\n";
     cout << "1. Insert FIRST Aktor / Aktris\n";
     cout << "2. Insert LAST  Aktor / Aktris\n";
@@ -27,6 +27,8 @@ do {
     cout << "12. Keluar\n";
     cout << "Pilih: ";
     cin >> pilih;
+
+    //test
 
     switch (pilih) {
         case 1:
