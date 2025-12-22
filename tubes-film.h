@@ -4,28 +4,27 @@
 #include <iostream>
 using namespace std;
 
-/* ================= DATA ================= */
-
+/* ===================== DATA ===================== */
+// Parent TANPA relasi
 struct Aktor {
     string idAktor;
     string nama;
     char gender; // L / P
 };
 
+// Parent DENGAN relasi
 struct Film {
     string idFilm;
     string judul;
-    int tahun;
+    int tahun;   // wajib integer
 };
 
-/* ================= POINTER ================= */
-
+/* ===================== POINTER ===================== */
 typedef struct elmAktor *adrAktor;
 typedef struct elmFilm *adrFilm;
 typedef struct elmRelasi *adrRelasi;
 
-/* ================= NODE ================= */
-
+/* ===================== NODE ===================== */
 struct elmAktor {
     Aktor info;
     adrAktor next;
@@ -36,40 +35,37 @@ struct elmFilm {
     adrFilm next;
 };
 
+// CHILD (relasi) → minimal pointer
 struct elmRelasi {
-    adrAktor aktor;
     adrFilm film;
+    adrAktor aktor;
     adrRelasi next;
 };
 
-/* ================= LIST ================= */
-
+/* ===================== LIST ===================== */
 struct ListAktor {
-    adrAktor first;
+    adrAktor first;   // TANPA relasi
 };
 
 struct ListFilm {
-    adrFilm first;
+    adrFilm first;    // DENGAN relasi
 };
 
 struct ListRelasi {
     adrRelasi first;
 };
 
-/* ================= PRIMITIF ================= */
-
+/* ===================== PRIMITIF ===================== */
 void createListAktor(ListAktor &LA);
 void createListFilm(ListFilm &LF);
 void createListRelasi(ListRelasi &LR);
 
-/* ================= ALOKASI ================= */
-
+/* ===================== ALOKASI ===================== */
 adrAktor newAktor(Aktor data);
 adrFilm newFilm(Film data);
-adrRelasi newRelasi(adrAktor a, adrFilm f);
+adrRelasi newRelasi(adrFilm f, adrAktor a);
 
-/* ================= INSERT ================= */
-
+/* ===================== INSERT ===================== */
 // Aktor
 void insertFirstAktor(ListAktor &LA, adrAktor p);
 void insertLastAktor(ListAktor &LA, adrAktor p);
@@ -78,27 +74,36 @@ void insertLastAktor(ListAktor &LA, adrAktor p);
 void insertFirstFilm(ListFilm &LF, adrFilm p);
 void insertLastFilm(ListFilm &LF, adrFilm p);
 
-/* ================= DELETE ================= */
+/* ===================== DELETE PARENT ===================== */
+void deleteFirstAktor(ListAktor &LA, ListRelasi &LR);
+void deleteLastFilm(ListFilm &LF, ListRelasi &LR);
 
-void deleteAktor(ListAktor &LA, ListRelasi &LR, string idAktor);
-void deleteFilm(ListFilm &LF, ListRelasi &LR, string idFilm);
-
-/* ================= SEARCH ================= */
-
+/* ===================== SEARCH PARENT ===================== */
 adrAktor findAktor(ListAktor LA, string idAktor);
 adrFilm findFilm(ListFilm LF, string idFilm);
 
-/* ================= RELASI ================= */
+/* ===================== RELASI ===================== */
+void connectAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a);
 
-void connectAktorFilm(ListRelasi &LR, adrAktor a, adrFilm f);
+// hapus 1 child tertentu dari 1 parent tertentu
+void deleteRelasiAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a);
+
+// hapus semua relasi milik parent
 void deleteRelasiByAktor(ListRelasi &LR, adrAktor a);
 void deleteRelasiByFilm(ListRelasi &LR, adrFilm f);
 
-/* ================= SHOW ================= */
-
-void showAllFilm(ListFilm LF, ListRelasi LR);
+/* ===================== SHOW ===================== */
+void showAllAktor(ListAktor LA);
+void showAllFilmOnly(ListFilm LF);
+void showAllFilmWithAktor(ListFilm LF, ListRelasi LR);
 void showFilmByAktor(ListRelasi LR, adrAktor a);
 void showAktorByFilm(ListRelasi LR, adrFilm f);
+
+/* ===================== COUNT ===================== */
+int countFilmByAktor(ListRelasi LR, adrAktor a);
+int countAktorByFilm(ListRelasi LR, adrFilm f);
+
+/* ===================== TOP ===================== */
 void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR);
 
 #endif
