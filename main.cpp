@@ -72,20 +72,18 @@ int main() {
     int pilih;
     do {
         cout << "\n===== MENU DATA PERFILMAN =====\n";
-        cout << "1. Insert First Aktor / Aktris \n";
-        cout << "2. Insert Last Aktor/Aktris \n";
-        cout << "3. Insert First Film \n";
-        cout << "4. Insert Last Film \n";
-        cout << "5. Tampilkan seluruh daftar Aktor/Aktris \n";
-        cout << "6. Tampilkan seluruh daftar Film \n";
-        cout << "7. Tambahkan relasi Aktor & Film \n";  
-        cout << "8. Hapus Aktor / Aktris \n";
-        cout << "9. Hapus Film \n";
-        cout << "10. Tampilkan semua film dan aktor\n";
-        cout << "11. Tampilkan film berdasarkan aktor\n";
-        cout << "12. Tampilkan aktor berdasarkan film\n";
-        cout << "13. Top Aktor & Aktris\n";
-        cout << "14. Keluar\n";
+        cout << "1. Insert FIRST Aktor/Aktris\n";
+        cout << "2. Insert LAST Aktor/Aktris\n";
+        cout << "3. Insert FIRST Film\n";
+        cout << "4. Insert LAST Film\n";
+        cout << "5. Hubungkan Aktor & Film\n";
+        cout << "6. Hapus Aktor tertentu\n";
+        cout << "7. Hapus Film tertentu\n";
+        cout << "8. Tampilkan semua film + aktor\n";
+        cout << "9. Tampilkan film oleh aktor\n";
+        cout << "10. Tampilkan aktor oleh film\n";
+        cout << "11. Aktor & Aktris Ter-Top\n";
+        cout << "12. Keluar\n";
         cout << "Pilih: ";
         cin >> pilih;
 
@@ -151,27 +149,6 @@ int main() {
             }
 
             case 5: {
-                cout << "\n===== MENAMPILKAN SELURUH LIST AKTOR / AKTRIS =====\n";
-                if (LA.first == NULL) {
-                    cout << "Belum ada data aktor/aktris.\n";
-                } else {
-                    showAllAktor(LA);
-                }
-                break;
-            }
-
-             case 6: {
-                cout << "\n===== MENAMPILKAN SELURUH LIST FILM =====\n";
-                if (LF.first == NULL) {
-                    cout << "Belum ada data film.\n";
-                } else {
-                    showAllFilmOnly(LF);
-                }
-                break;
-            }
-
-            case 7: {
-                cout << "\n===== MENAMBAHKAN RELASI AKTOR / AKTRIS DENGAN FILM =====\n";
                 string idA, idF; 
                 cout << "ID Aktor: "; cin >> idA; 
                 cout << "ID Film: "; cin >> idF; 
@@ -187,8 +164,7 @@ int main() {
                 } break; 
             }
 
-            case 8: {
-                cout << "\n===== MENGHAPUS AKTOR / AKTRIS BERDASARKAN ID =====\n";
+            case 6: {
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
                 deleteAktorByID(LA, LR, id); 
@@ -196,8 +172,7 @@ int main() {
                 break; 
             }
 
-            case 9: {
-                cout << "\n===== MENGHAPUS FILM BERDASARKAN ID =====\n";
+            case 7: {
                 string id; 
                 cout << "ID Film: "; cin >> id; 
                 deleteFilmByID(LF, LR, id); 
@@ -205,14 +180,12 @@ int main() {
                 break; 
             }
 
-            case 10: {
-                cout << "\n===== MENAMPILKAN SELURUH RELASI AKTOR / AKTRIS DENGAN FILM =====\n";
+            case 8: {
                 showAllFilmWithAktor(LF, LR); 
                 break; 
             }
 
-            case 11: {
-                cout << "\n===== MENAMPILKAN LIST FILM BERDASARKAN AKTOR / AKTRIS =====\n";
+            case 9: {
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
                 adrAktor a = findAktor (LA, id); 
@@ -223,8 +196,7 @@ int main() {
                 } break; 
             }
 
-            case 12: {
-                cout << "\n===== MENAMPILKAN LIST AKTOR / AKTRIS BERDASARKAN FILM =====\n";
+            case 10: {
                 string id; 
                 cout << "ID Film: "; cin >> id; 
                 adrFilm f = findFilm(LF, id); 
@@ -235,8 +207,7 @@ int main() {
                 } break;
             }
 
-            case 13:
-                cout << "\n===== MENAMPILKAN LIST TOP AKTOR & AKTRIS  =====\n";
+            case 11:
                 showAktorDanAktrisTerTop(LA, LR); 
                 break; 
         } 
