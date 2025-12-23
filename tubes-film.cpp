@@ -256,8 +256,8 @@ void deleteRelasiByFilm(ListRelasi &LR, adrFilm f) {
 void showAllAktor(ListAktor LA) {
     adrAktor p = LA.first; 
     while (p != NULL){
-        cout << "ID     : " << p -> info.idAktor << endl; 
-        cout << "Nama   : "<< p -> info.nama << endl; 
+        cout << "\nID : " << p -> info.idAktor << endl; 
+        cout << "Nama : "<< p -> info.nama << endl; 
         cout << "Gender : " << p -> info.gender << endl; 
         p = p -> next; 
     }
@@ -267,9 +267,9 @@ void showAllAktor(ListAktor LA) {
 void showAllFilmOnly(ListFilm LF) {
     adrFilm f = LF.first; 
     while (f != NULL){
-        cout << "ID Film : " << f -> info.idFilm << endl; 
-        cout << "Judul   : " << f -> info.judul << endl; 
-        cout << "Tahun   : " << f -> info.tahun << endl; 
+        cout << "\nID Film : " << f -> info.idFilm << endl; 
+        cout << "Judul : " << f -> info.judul << endl; 
+        cout << "Tahun : " << f -> info.tahun << endl; 
         f = f -> next;
     }
 }
@@ -278,7 +278,7 @@ void showAllFilmOnly(ListFilm LF) {
 void showAllFilmWithAktor(ListFilm LF, ListRelasi LR) {
     adrFilm f = LF.first; 
     while (f != NULL){
-        cout << "Film    : " << f -> info.judul << " (" << f -> info.tahun << ")" << endl; 
+        cout << "\n Film : " << f -> info.judul << " (" << f -> info.tahun << ")" << endl; 
 
         adrRelasi r = LR.first; 
         while (r != NULL) {
@@ -346,7 +346,6 @@ int countAktorByFilm(ListRelasi LR, adrFilm f) {
     return count; 
 }
 
-
 void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) { 
      adrAktor topAktor = NULL;
     adrAktor topAktris = NULL;
@@ -374,10 +373,10 @@ void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) {
 
     if (topAktor != NULL) {
         cout << "Aktor Ter-Top:\n";
-        cout << "  ID    : " << topAktor->info.idAktor << endl;
-        cout << "  Nama  : " << topAktor->info.nama << endl;
-        cout << "  Gender: " << topAktor->info.gender << endl;
-        cout << "  Jumlah Film: " << maxFilmAktor << endl;
+        cout << "  ID : " << topAktor->info.idAktor << endl;
+        cout << "  Nama : " << topAktor->info.nama << endl;
+        cout << "  Gender : " << topAktor->info.gender << endl;
+        cout << "  Jumlah Film : " << maxFilmAktor << endl;
     } else {
         cout << "Aktor Ter-Top: Tidak ada data\n";
     }
@@ -386,10 +385,10 @@ void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) {
     
     if (topAktris != NULL) {
         cout << "Aktris Ter-Top:\n";
-        cout << "  ID    : " << topAktris->info.idAktor << endl;
-        cout << "  Nama  : " << topAktris->info.nama << endl;
-        cout << "  Gender: " << topAktris->info.gender << endl;
-        cout << "  Jumlah Film: " << maxFilmAktris << endl;
+        cout << "  ID : " << topAktris->info.idAktor << endl;
+        cout << "  Nama : " << topAktris->info.nama << endl;
+        cout << "  Gender : " << topAktris->info.gender << endl;
+        cout << "  Jumlah Film : " << maxFilmAktris << endl;
     } else {
         cout << "Aktris Ter-Top: Tidak ada data\n";
     }
