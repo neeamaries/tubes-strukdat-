@@ -46,7 +46,7 @@ int main() {
     Film f7  = {"f7", "500 Days of Summer", 2009};
     Film f8  = {"f8", "The Perks of Being a Wallflower", 2012};
     Film f9  = {"f9", "Man in Love", 2021};
-    Film f10 = {"f0", "Parasite", 2019};
+    Film f10 = {"f10", "Parasite", 2019};
 
     insertLastFilm(LF, newFilm(f1));
     insertLastFilm(LF, newFilm(f2));
@@ -66,14 +66,16 @@ int main() {
         cout << "2. Insert LAST Aktor/Aktris\n";
         cout << "3. Insert FIRST Film\n";
         cout << "4. Insert LAST Film\n";
-        cout << "5. Hubungkan Aktor & Film\n";
-        cout << "6. Hapus Aktor tertentu\n";
-        cout << "7. Hapus Film tertentu\n";
-        cout << "8. Tampilkan semua film + aktor\n";
-        cout << "9. Tampilkan film oleh aktor\n";
-        cout << "10. Tampilkan aktor oleh film\n";
-        cout << "11. Aktor & Aktris Ter-Top\n";
-        cout << "12. Keluar\n";
+        cout << "5. Tampilkan semua Aktor/Aktris\n";
+        cout << "6. Tampilkan semua Film\n";
+        cout << "7. Hubungkan Aktor & Film\n";
+        cout << "8. Hapus Aktor tertentu\n";
+        cout << "9. Hapus Film tertentu\n";
+        cout << "10. Tampilkan semua film + aktor\n";
+        cout << "11. Tampilkan film oleh aktor\n";
+        cout << "12. Tampilkan aktor oleh film\n";
+        cout << "13. Aktor & Aktris Ter-Top\n";
+        cout << "14. Keluar\n";
         cout << "Pilih: ";
         cin >> pilih;
 
@@ -135,6 +137,28 @@ int main() {
             }
 
             case 5: {
+                cout << "\nDAFTAR SEMUA AKTOR/AKTRIS\n";
+                if (LA.first == NULL) {
+                    cout << "Belum ada data aktor/aktris.\n";
+                } else {
+                    showAllAktor(LA);
+                }
+                break;
+            
+            }
+
+             case 6: {
+                cout << "\nDAFTAR SEMUA FILM\n";
+                if (LF.first == NULL) {
+                    cout << "Belum ada data film.\n";
+                } else {
+                    showAllFilmOnly(LF);
+                }
+                break;
+            
+            }
+
+            case 7: {
                 string idA, idF; 
                 cout << "ID Aktor: "; cin >> idA; 
                 cout << "ID Film: "; cin >> idF; 
@@ -150,7 +174,7 @@ int main() {
                 } break; 
             }
 
-            case 6: {
+            case 8: {
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
                 deleteAktorByID(LA, LR, id); 
@@ -158,7 +182,7 @@ int main() {
                 break; 
             }
 
-            case 7: {
+            case 9: {
                 string id; 
                 cout << "ID Film: "; cin >> id; 
                 deleteFilmByID(LF, LR, id); 
@@ -166,12 +190,12 @@ int main() {
                 break; 
             }
 
-            case 8: {
+            case 10: {
                 showAllFilmWithAktor(LF, LR); 
                 break; 
             }
 
-            case 9: {
+            case 11: {
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
                 adrAktor a = findAktor (LA, id); 
@@ -182,7 +206,7 @@ int main() {
                 } break; 
             }
 
-            case 10: {
+            case 12: {
                 string id; 
                 cout << "ID Film: "; cin >> id; 
                 adrFilm f = findFilm(LF, id); 
@@ -193,7 +217,7 @@ int main() {
                 } break;
             }
 
-            case 11:
+            case 13:
                 showAktorDanAktrisTerTop(LA, LR); 
                 break; 
         } 
