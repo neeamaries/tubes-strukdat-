@@ -77,6 +77,8 @@ void insertLastFilm(ListFilm &LF, adrFilm p);
 /* ===================== DELETE PARENT ===================== */
 void deleteFirstAktor(ListAktor &LA, ListRelasi &LR);
 void deleteLastFilm(ListFilm &LF, ListRelasi &LR);
+void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor); 
+void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm); 
 
 /* ===================== SEARCH PARENT ===================== */
 adrAktor findAktor(ListAktor LA, string idAktor);

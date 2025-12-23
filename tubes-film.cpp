@@ -115,6 +115,45 @@ void deleteLastFilm(ListFilm &LF, ListRelasi &LR) {
     }
 }
 
+void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor){
+    adrAktor p = LA.first; 
+    adrAktor prev = NULL; 
+
+    while (p != NULL && p -> info.idAktor != idAktor){
+        prev = p; 
+        p = p -> next;
+    }
+
+    if (p != NULL) {
+        deleteRelasiByAktor(LR, p); 
+        if (prev == NULL){
+            LA.first = p -> next; 
+        } else {
+            prev -> next = p -> next; 
+        } delete p; 
+    }
+}
+
+void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm){
+    adrFilm p = LF.first; 
+    adrFilm prev = NULL; 
+
+    while (p != NULL && p -> info.idFilm != idFilm){
+        prev = p; 
+        p = p -> next; 
+    }
+
+    if (p != NULL) {
+        deleteRelasiByFilm (LR, p); 
+
+        if (prev == NULL) {
+            LF.first = p -> next; 
+        } else {
+            prev -> next = p -> next; 
+        } delete p; 
+    }
+}
+
 adrAktor findAktor(ListAktor LA, string idAktor) {
     adrAktor p = LA.first;
     while (p != NULL) {
