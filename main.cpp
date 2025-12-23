@@ -55,6 +55,7 @@ int main() {
     insertLastFilm(LF, newFilm(F9));
     insertLastFilm(LF, newFilm(F10));
 
+    //udah
     connectAktorFilm(LR, findFilm(LF, "F1"), findAktor(LA, "A2"));    
     connectAktorFilm(LR, findFilm(LF, "F2"), findAktor(LA, "A7"));  
     connectAktorFilm(LR, findFilm(LF, "F3"), findAktor(LA, "A1"));   
