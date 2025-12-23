@@ -104,34 +104,34 @@ do {
 
         switch (pilih) {
             case 1:
-                // insertFirstAktor
+                insertFirstAktor(LA, p); 
                 break;
             case 2:
-                // insertLastAktor
+                insertLastAktor; 
                 break;
             case 3:
-                // insertFirstFilm
+                insertFirstFilm; 
                 break;
             case 4:
-                // insertLastFilm
+                insertLastFilm; 
                 break;
             case 5:
-                // connectAktorFilm
+                connectAktorFilm; 
                 break;
             case 6:
-                // delete aktor + relasi
+                deleteRelasiByAktor; 
                 break;
             case 7:
-                // delete film + relasi
+                deleteRelasiByFilm; 
                 break;
             case 8:
                 showAllFilmWithAktor(LF, LR);
                 break;
             case 9:
-                // showFilmByAktor
+                showFilmByAktor; 
                 break;
             case 10:
-                // showAktorByFilm
+                showAktorByFilm; 
                 break;
             case 11:
                 showAktorDanAktrisTerTop(LA, LR);
