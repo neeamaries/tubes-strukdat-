@@ -46,7 +46,7 @@ int main() {
     Film f7  = {"f7", "500 Days of Summer", 2009};
     Film f8  = {"f8", "The Perks of Being a Wallflower", 2012};
     Film f9  = {"f9", "Man in Love", 2021};
-    Film f10 = {"f0", "Parasite", 2019};
+    Film f10 = {"f10", "Parasite", 2019};
 
     insertLastFilm(LF, newFilm(f1));
     insertLastFilm(LF, newFilm(f2));
