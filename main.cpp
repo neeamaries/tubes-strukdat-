@@ -10,16 +10,16 @@ int main() {
     createListFilm(LF);
     createListRelasi(LR);
 
-    Aktor a1  = {"a1", "Pedro Pascal", 'L'};
-    Aktor a2  = {"a2", "Ariana Grande", 'P'};
-    Aktor a3  = {"a3", "Brad Pitt", 'L'};
-    Aktor a4  = {"a4", "John Cena", 'L'};
-    Aktor a5  = {"a5", "Barry Keoghan", 'L'};
-    Aktor a6  = {"a6", "Alex Lawther", 'L'};
-    Aktor a7  = {"a7", "Tom Hanks", 'L'};
-    Aktor a8  = {"a8", "Emma Watson", 'P'};
-    Aktor a9  = {"a9", "Florence Pugh", 'P'};
-    Aktor a10 = {"a10", "Song Kang-ho", 'L'};
+    Aktor a1  = {"A1", "Pedro Pascal", 'L'};
+    Aktor a2  = {"A2", "Ariana Grande", 'P'};
+    Aktor a3  = {"A3", "Brad Pitt", 'L'};
+    Aktor a4  = {"A4", "John Cena", 'L'};
+    Aktor a5  = {"A5", "Barry Keoghan", 'L'};
+    Aktor a6  = {"A6", "Alex Lawther", 'L'};
+    Aktor a7  = {"A7", "Tom Hanks", 'L'};
+    Aktor a8  = {"A8", "Emma Watson", 'P'};
+    Aktor a9  = {"A9", "Florence Pugh", 'P'};
+    Aktor a10 = {"A10", "Song Kang-ho", 'L'};
 
 
     insertFirstAktor(LA, newAktor(a1));
@@ -33,16 +33,16 @@ int main() {
     insertLastAktor(LA, newAktor(a9));
     insertLastAktor(LA, newAktor(a10));
 
-    Film f1  = {"f1", "Wicked", 2024};
-    Film f2  = {"f2", "A Man Called Otto", 2022};
-    Film f3  = {"f3", "Avatar", 2009};
-    Film f4  = {"f4", "Saltburn", 2023};
-    Film f5  = {"f5", "The Weapon", 2023};
-    Film f6  = {"f6", "Longlegs", 2024};
-    Film f7  = {"f7", "500 Days of Summer", 2009};
-    Film f8  = {"f8", "The Perks of Being a Wallflower", 2012};
-    Film f9  = {"f9", "Man in Love", 2021};
-    Film f10 = {"f10", "Parasite", 2019};
+    Film f1  = {"F1", "Wicked", 2024};
+    Film f2  = {"F2", "A Man Called Otto", 2022};
+    Film f3  = {"F3", "Avatar", 2009};
+    Film f4  = {"F4", "Saltburn", 2023};
+    Film f5  = {"F5", "The Weapon", 2023};
+    Film f6  = {"F6", "Longlegs", 2024};
+    Film f7  = {"F7", "500 Days of Summer", 2009};
+    Film f8  = {"F8", "The Perks of Being a Wallflower", 2012};
+    Film f9  = {"F9", "Man in Love", 2021};
+    Film f10 = {"F10", "Parasite", 2019};
 
     insertLastFilm(LF, newFilm(f1));
     insertLastFilm(LF, newFilm(f2));
@@ -81,11 +81,14 @@ int main() {
         cout << "7. Tambahkan relasi Aktor & Film \n";  
         cout << "8. Hapus Aktor / Aktris \n";
         cout << "9. Hapus Film \n";
-        cout << "10. Tampilkan semua film dan aktor\n";
-        cout << "11. Tampilkan film berdasarkan aktor\n";
-        cout << "12. Tampilkan aktor berdasarkan film\n";
-        cout << "13. Top Aktor & Aktris\n";
-        cout << "14. Keluar\n";
+        cout << "10. Tampilkan semua film yang diperankan Aktor / Aktris \n";
+        cout << "11. Tampilkan Film yang diperankan Aktor / Aktris\n";
+        cout << "12. Tampilkan Aktor berdasarkan Film yang diperankan\n";
+        cout << "13. Hapus Relasi Aktor / Aktris dengan Film\n";
+        cout << "14. Hitung Jumlah Film yang diperankan Aktor / Aktris\n";
+        cout << "15. Hitung Jumlah Aktor pada Film\n";
+        cout << "16. Top Aktor & Aktris\n";
+        cout << "17. Keluar\n";
         cout << "Pilih: ";
         cin >> pilih;
 
@@ -235,13 +238,57 @@ int main() {
                 } break;
             }
 
-            case 13:
+            case 13: {
+                cout << "\n===== HAPUS RELASI AKTOR - FILM =====\n";
+                string idA, idF;
+                cout << "ID Aktor: "; cin >> idA;
+                cout << "ID Film: "; cin >> idF;
+
+                adrAktor a = findAktor(LA, idA);
+                adrFilm f = findFilm(LF, idF);
+
+                if (a != NULL && f != NULL) {
+                    deleteRelasiAktorFilm(LR, f, a);
+                    cout << "Relasi berhasil dihapus.\n";
+                } else {
+                    cout << "Aktor atau Film tidak ditemukan.\n";
+                }break;
+            }
+
+            case 14: {
+                cout << "\n===== HITUNG JUMLAH FILM DARI AKTOR =====\n";
+                string id;
+                cout << "ID Aktor: "; cin >> id;
+
+                adrAktor a = findAktor(LA, id);
+                if (a != NULL) {
+                    cout << "Jumlah film: " << countFilmByAktor(LR, a) << endl;
+                } else {
+                    cout << "Aktor tidak ditemukan.\n";
+                } break;
+            }
+
+            case 15: {
+                cout << "\n===== HITUNG JUMLAH AKTOR DALAM FILM =====\n";
+                string id;
+                cout << "ID Film: "; cin >> id;
+
+                adrFilm f = findFilm(LF, id);
+                if (f != NULL) {
+                    cout << "Jumlah aktor: " << countAktorByFilm(LR, f) << endl;
+                } else {
+                    cout << "Film tidak ditemukan.\n";
+                } break;
+            }
+
+            case 16:
                 cout << "\n===== MENAMPILKAN LIST TOP AKTOR & AKTRIS  =====\n";
                 showAktorDanAktrisTerTop(LA, LR); 
                 break; 
         } 
         
-    } while (pilih != 14); 
+    } while (pilih != 17); 
         
     return 0; 
 }
+    
