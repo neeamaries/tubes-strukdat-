@@ -15,29 +15,32 @@ void createListRelasi(ListRelasi &LR) {
     LR.first = NULL; 
 }
 
+// aila
 adrAktor newAktor(Aktor data) {
     adrAktor P = new elmAktor;
     P -> info = data;
     P -> next = NULL;
     return P;
 
-} // aila
+} 
 
+// aila
 adrFilm newFilm(Film data) {
     adrFilm P = new elmFilm;
     P -> info = data;
     P -> next = NULL;
     return P;
 
-} // aila 
+}
 
+// aila
 adrRelasi newRelasi(adrFilm f, adrAktor a) { 
     adrRelasi P = new elmRelasi;
     P -> film = f;
     P -> aktor = a;
     P -> next = NULL;
     return P;
-} // aila 
+} 
 
 // nevy 
 void insertFirstAktor(ListAktor &LA, adrAktor p) { 
@@ -59,7 +62,7 @@ void insertLastAktor(ListAktor &LA, adrAktor p) {
     p -> next = NULL; 
 }
 
-// Film
+// nevy
 void insertFirstFilm(ListFilm &LF, adrFilm p) {
     if (LF.first == NULL) {
         LF.first = p;
@@ -69,6 +72,7 @@ void insertFirstFilm(ListFilm &LF, adrFilm p) {
     }
 }
 
+// nevy
 void insertLastFilm(ListFilm &LF, adrFilm p) {
     if (LF.first == NULL) {
         LF.first = p;
@@ -80,6 +84,7 @@ void insertLastFilm(ListFilm &LF, adrFilm p) {
         q->next = p;
     }
 }
+
 // nevy 
 void deleteFirstAktor(ListAktor &LA, ListRelasi &LR) {
     if (LA.first != NULL){
@@ -93,7 +98,7 @@ void deleteFirstAktor(ListAktor &LA, ListRelasi &LR) {
     }
 } 
 
- // nevy 
+// nevy 
 void deleteLastFilm(ListFilm &LF, ListRelasi &LR) {
     if (LF.first != NULL){
         adrFilm p; 
@@ -115,6 +120,7 @@ void deleteLastFilm(ListFilm &LF, ListRelasi &LR) {
     }
 }
 
+// aila
 void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor){
     adrAktor p = LA.first; 
     adrAktor prev = NULL; 
@@ -134,6 +140,7 @@ void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor){
     }
 }
 
+// aila
 void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm){
     adrFilm p = LF.first; 
     adrFilm prev = NULL; 
@@ -154,6 +161,7 @@ void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm){
     }
 }
 
+// aila
 adrAktor findAktor(ListAktor LA, string idAktor) {
     adrAktor p = LA.first;
     while (p != NULL) {
@@ -165,6 +173,7 @@ adrAktor findAktor(ListAktor LA, string idAktor) {
     return NULL;
 }
 
+// aila
 adrFilm findFilm(ListFilm LF, string idFilm) {
     adrFilm p = LF.first;
     while (p != NULL) {
@@ -176,6 +185,7 @@ adrFilm findFilm(ListFilm LF, string idFilm) {
     return NULL;
 }
 
+// aila
 void connectAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     if (f != NULL && a != NULL) {
         adrRelasi p = newRelasi(f, a);
@@ -188,6 +198,7 @@ void connectAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     }
 }
 
+// nevy
 void deleteRelasiAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -207,6 +218,7 @@ void deleteRelasiAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     }
 }
 
+// nevy
 void deleteRelasiByAktor(ListRelasi &LR, adrAktor a) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -229,6 +241,7 @@ void deleteRelasiByAktor(ListRelasi &LR, adrAktor a) {
     }
 }
 
+// nevy
 void deleteRelasiByFilm(ListRelasi &LR, adrFilm f) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -346,6 +359,7 @@ int countAktorByFilm(ListRelasi LR, adrFilm f) {
     return count; 
 }
 
+// aila
 void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) { 
      adrAktor topAktor = NULL;
     adrAktor topAktris = NULL;
@@ -392,4 +406,4 @@ void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) {
     } else {
         cout << "Aktris Ter-Top: Tidak ada data\n";
     }
-} // aila 
+}

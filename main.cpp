@@ -88,7 +88,7 @@ int main() {
         cout << "13. Tampilkan seluruh daftar Aktor/Aktris \n";
         cout << "14. Tampilkan seluruh daftar Film \n";
         cout << "15. Tampilkan Seluruh Film berdasarkan Aktor /Aktris \n";
-        cout << "16. Tampilkan Film berdasarkan Aktor yang meme \n";
+        cout << "16. Tampilkan seluruh relasi Film dan Aktor/Aktris-nya\n";
         cout << "17. Tampilkan Aktor berdasarkan Film \n";
         cout << "18. Top Aktor & Aktris\n";
         cout << "19. Keluar\n";
@@ -156,63 +156,7 @@ int main() {
                 } break; 
             }
 
-            case 5: {
-                cout << "\n===== TAMPILKAN AKTOR BERDASARKAN ID =====\n";
-                string id;
-                cout << "ID Aktor: ";
-                cin >> id;
-
-                adrAktor a = findAktor(LA, id);
-                if (a != NULL) {
-                    cout << "ID     : " << a->info.idAktor << endl;
-                    cout << "Nama   : " << a->info.nama << endl;
-                    cout << "Gender : " << a->info.gender << endl;
-                } else {
-                    cout << "Aktor tidak ditemukan.\n";
-                }
-                break;
-            }
-
-            case 6: {
-                cout << "\n===== TAMPILKAN FILM BERDASARKAN ID =====\n";
-                string id;
-                cout << "ID Film: ";
-                cin >> id;
-
-                adrFilm f = findFilm(LF, id);
-                if (f != NULL) {
-                    cout << "ID     : " << f->info.idFilm << endl;
-                    cout << "Judul  : " << f->info.judul << endl;
-                    cout << "Tahun  : " << f->info.tahun << endl;
-                } else {
-                    cout << "Film tidak ditemukan.\n";
-                }
-                break;
-            }
-
-
-
-            case 7: {
-                cout << "\n===== MENAMPILKAN SELURUH LIST AKTOR / AKTRIS =====\n";
-                if (LA.first == NULL) {
-                    cout << "Belum ada data aktor/aktris.\n";
-                } else {
-                    showAllAktor(LA);
-                }
-                break;
-            }
-
-             case 8: {
-                cout << "\n===== MENAMPILKAN SELURUH LIST FILM =====\n";
-                if (LF.first == NULL) {
-                    cout << "Belum ada data film.\n";
-                } else {
-                    showAllFilmOnly(LF);
-                }
-                break;
-            }
-
-            case 9: {
+             case 5: {
                 cout << "\n===== MENAMBAHKAN RELASI AKTOR / AKTRIS DENGAN FILM =====\n";
                 string idA, idF; 
                 cout << "ID Aktor: "; cin >> idA; 
@@ -229,7 +173,7 @@ int main() {
                 } break; 
             }
 
-            case 10: {
+            case 6: {
                 cout << "\n===== MENGHAPUS AKTOR / AKTRIS BERDASARKAN ID =====\n";
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
@@ -238,7 +182,7 @@ int main() {
                 break; 
             }
 
-            case 11: {
+            case 7: {
                 cout << "\n===== MENGHAPUS FILM BERDASARKAN ID =====\n";
                 string id; 
                 cout << "ID Film: "; cin >> id; 
@@ -247,37 +191,7 @@ int main() {
                 break; 
             }
 
-            case 12: {
-                cout << "\n===== MENAMPILKAN SELURUH RELASI AKTOR / AKTRIS DENGAN FILM =====\n";
-                showAllFilmWithAktor(LF, LR); 
-                break; 
-            }
-
-            case 13: {
-                cout << "\n===== MENAMPILKAN LIST FILM BERDASARKAN AKTOR / AKTRIS =====\n";
-                string id; 
-                cout << "ID Aktor: "; cin >> id; 
-                adrAktor a = findAktor (LA, id); 
-                if (a != NULL){
-                    showFilmByAktor(LR, a); 
-                } else {
-                    cout << "Aktor tidak ditemukan. \n"; 
-                } break; 
-            }
-
-            case 14: {
-                cout << "\n===== MENAMPILKAN LIST AKTOR / AKTRIS BERDASARKAN FILM =====\n";
-                string id; 
-                cout << "ID Film: "; cin >> id; 
-                adrFilm f = findFilm(LF, id); 
-                if (f != NULL){
-                    showAktorByFilm(LR, f); 
-                } else {
-                    cout << "Film tidak ditemukan. \n"; 
-                } break;
-            }
-
-            case 15: {
+            case 8: {
                 cout << "\n===== HAPUS RELASI AKTOR - FILM =====\n";
                 string idA, idF;
                 cout << "ID Aktor: "; cin >> idA;
@@ -294,7 +208,7 @@ int main() {
                 }break;
             }
 
-            case 16: {
+            case 9: {
                 cout << "\n===== HITUNG JUMLAH FILM DARI AKTOR =====\n";
                 string id;
                 cout << "ID Aktor: "; cin >> id;
@@ -307,7 +221,7 @@ int main() {
                 } break;
             }
 
-            case 17: {
+            case 10: {
                 cout << "\n===== HITUNG JUMLAH AKTOR DALAM FILM =====\n";
                 string id;
                 cout << "ID Film: "; cin >> id;
@@ -317,6 +231,90 @@ int main() {
                     cout << "Jumlah aktor: " << countAktorByFilm(LR, f) << endl;
                 } else {
                     cout << "Film tidak ditemukan.\n";
+                } break;
+            }
+
+            case 11: {
+                cout << "\n===== TAMPILKAN AKTOR BERDASARKAN ID =====\n";
+                string id;
+                cout << "ID Aktor: ";
+                cin >> id;
+
+                adrAktor a = findAktor(LA, id);
+                if (a != NULL) {
+                    cout << "ID     : " << a->info.idAktor << endl;
+                    cout << "Nama   : " << a->info.nama << endl;
+                    cout << "Gender : " << a->info.gender << endl;
+                } else {
+                    cout << "Aktor tidak ditemukan.\n";
+                }
+                break;
+            }
+
+            case 12: {
+                cout << "\n===== TAMPILKAN FILM BERDASARKAN ID =====\n";
+                string id;
+                cout << "ID Film: ";
+                cin >> id;
+
+                adrFilm f = findFilm(LF, id);
+                if (f != NULL) {
+                    cout << "ID     : " << f->info.idFilm << endl;
+                    cout << "Judul  : " << f->info.judul << endl;
+                    cout << "Tahun  : " << f->info.tahun << endl;
+                } else {
+                    cout << "Film tidak ditemukan.\n";
+                }
+                break;
+            }
+
+            case 13: {
+                cout << "\n===== MENAMPILKAN SELURUH LIST AKTOR / AKTRIS =====\n";
+                if (LA.first == NULL) {
+                    cout << "Belum ada data aktor/aktris.\n";
+                } else {
+                    showAllAktor(LA);
+                }
+                break;
+            }
+
+             case 14: {
+                cout << "\n===== MENAMPILKAN SELURUH LIST FILM =====\n";
+                if (LF.first == NULL) {
+                    cout << "Belum ada data film.\n";
+                } else {
+                    showAllFilmOnly(LF);
+                }
+                break;
+            }
+            
+            case 15: {
+                cout << "\n===== MENAMPILKAN LIST FILM BERDASARKAN AKTOR / AKTRIS =====\n";
+                string id; 
+                cout << "ID Aktor: "; cin >> id; 
+                adrAktor a = findAktor (LA, id); 
+                if (a != NULL){
+                    showFilmByAktor(LR, a); 
+                } else {
+                    cout << "Aktor tidak ditemukan. \n"; 
+                } break; 
+            }
+
+            case 16: {
+                cout << "\n===== MENAMPILKAN SELURUH RELASI AKTOR / AKTRIS DENGAN FILM =====\n";
+                showAllFilmWithAktor(LF, LR); 
+                break; 
+            }
+
+            case 17: {
+                cout << "\n===== MENAMPILKAN LIST AKTOR / AKTRIS BERDASARKAN FILM =====\n";
+                string id; 
+                cout << "ID Film: "; cin >> id; 
+                adrFilm f = findFilm(LF, id); 
+                if (f != NULL){
+                    showAktorByFilm(LR, f); 
+                } else {
+                    cout << "Film tidak ditemukan. \n"; 
                 } break;
             }
 
