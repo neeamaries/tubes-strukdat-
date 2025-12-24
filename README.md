@@ -1,7 +1,15 @@
-Tugas Besar
-Mata kuliah : Struktur Data
+# Tugas Besar
 
-"Implementasi Multi Linked List dalam Data Perfilman"
-Daftar Nama Kelompok : 
-Bethari Nevyta Amaries (10307243001)
-A'ilah Nailul Fa'izah (103072400042)
+## Mata Kuliah: Struktur Data
+
+### Implementasi Multi Linked List dalam Data Perfilman
+
+---
+
+### Daftar Nama Kelompok
+
+* **Bethari Nevyta Amaries**
+  NIM: 10307243001
+
+* **A'ilah Nailul Fa'izah**
+  NIM: 103072400042
