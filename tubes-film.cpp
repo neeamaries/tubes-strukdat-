@@ -5,17 +5,14 @@ void createListAktor(ListAktor &LA) {
     LA.first = NULL; 
 }
 
- //nevy
 void createListFilm(ListFilm &LF) {
     LF.first = NULL; 
 }
 
-//nevy
 void createListRelasi(ListRelasi &LR) {
     LR.first = NULL; 
 }
 
-// aila
 adrAktor newAktor(Aktor data) {
     adrAktor P = new elmAktor;
     P -> info = data;
@@ -24,7 +21,6 @@ adrAktor newAktor(Aktor data) {
 
 } 
 
-// aila
 adrFilm newFilm(Film data) {
     adrFilm P = new elmFilm;
     P -> info = data;
@@ -33,7 +29,6 @@ adrFilm newFilm(Film data) {
 
 }
 
-// aila
 adrRelasi newRelasi(adrFilm f, adrAktor a) { 
     adrRelasi P = new elmRelasi;
     P -> film = f;
@@ -42,13 +37,11 @@ adrRelasi newRelasi(adrFilm f, adrAktor a) {
     return P;
 } 
 
-// nevy 
 void insertFirstAktor(ListAktor &LA, adrAktor p) { 
     p -> next = LA.first; 
     LA.first = p; 
 }
 
-// nevy 
 void insertLastAktor(ListAktor &LA, adrAktor p) { 
     if (LA.first == NULL){
         LA.first = p; 
@@ -62,7 +55,6 @@ void insertLastAktor(ListAktor &LA, adrAktor p) {
     p -> next = NULL; 
 }
 
-// nevy
 void insertFirstFilm(ListFilm &LF, adrFilm p) {
     if (LF.first == NULL) {
         LF.first = p;
@@ -72,7 +64,6 @@ void insertFirstFilm(ListFilm &LF, adrFilm p) {
     }
 }
 
-// nevy
 void insertLastFilm(ListFilm &LF, adrFilm p) {
     if (LF.first == NULL) {
         LF.first = p;
@@ -85,7 +76,6 @@ void insertLastFilm(ListFilm &LF, adrFilm p) {
     }
 }
 
-// nevy 
 void deleteFirstAktor(ListAktor &LA, ListRelasi &LR) {
     if (LA.first != NULL){
         adrAktor p = LA.first; 
@@ -98,7 +88,6 @@ void deleteFirstAktor(ListAktor &LA, ListRelasi &LR) {
     }
 } 
 
-// nevy 
 void deleteLastFilm(ListFilm &LF, ListRelasi &LR) {
     if (LF.first != NULL){
         adrFilm p; 
@@ -120,7 +109,6 @@ void deleteLastFilm(ListFilm &LF, ListRelasi &LR) {
     }
 }
 
-// aila
 void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor){
     adrAktor p = LA.first; 
     adrAktor prev = NULL; 
@@ -140,7 +128,6 @@ void deleteAktorByID(ListAktor &LA, ListRelasi &LR, string idAktor){
     }
 }
 
-// aila
 void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm){
     adrFilm p = LF.first; 
     adrFilm prev = NULL; 
@@ -161,7 +148,6 @@ void deleteFilmByID(ListFilm &LF, ListRelasi &LR, string idFilm){
     }
 }
 
-// aila
 adrAktor findAktor(ListAktor LA, string idAktor) {
     adrAktor p = LA.first;
     while (p != NULL) {
@@ -173,7 +159,6 @@ adrAktor findAktor(ListAktor LA, string idAktor) {
     return NULL;
 }
 
-// aila
 adrFilm findFilm(ListFilm LF, string idFilm) {
     adrFilm p = LF.first;
     while (p != NULL) {
@@ -198,7 +183,6 @@ void connectAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     }
 }
 
-// nevy
 void deleteRelasiAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -218,7 +202,6 @@ void deleteRelasiAktorFilm(ListRelasi &LR, adrFilm f, adrAktor a) {
     }
 }
 
-// nevy
 void deleteRelasiByAktor(ListRelasi &LR, adrAktor a) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -241,7 +224,6 @@ void deleteRelasiByAktor(ListRelasi &LR, adrAktor a) {
     }
 }
 
-// nevy
 void deleteRelasiByFilm(ListRelasi &LR, adrFilm f) {
     adrRelasi p = LR.first;
     adrRelasi prec = NULL;
@@ -264,8 +246,6 @@ void deleteRelasiByFilm(ListRelasi &LR, adrFilm f) {
     }
 }
 
-
-// nevy 
 void showAllAktor(ListAktor LA) {
     adrAktor p = LA.first; 
     while (p != NULL){
@@ -276,7 +256,6 @@ void showAllAktor(ListAktor LA) {
     }
 }
 
-// nevy 
 void showAllFilmOnly(ListFilm LF) {
     adrFilm f = LF.first; 
     while (f != NULL){
@@ -287,7 +266,6 @@ void showAllFilmOnly(ListFilm LF) {
     }
 }
 
-// nevy 
 void showAllFilmWithAktor(ListFilm LF, ListRelasi LR) {
     adrFilm f = LF.first; 
     while (f != NULL){
@@ -304,7 +282,6 @@ void showAllFilmWithAktor(ListFilm LF, ListRelasi LR) {
     }
 }
 
-// nevy 
 void showFilmByAktor(ListRelasi LR, adrAktor a) {
     adrRelasi r = LR.first; 
     cout << "Film oleh aktor / aktris : " << a -> info.nama << endl; 
@@ -317,7 +294,6 @@ void showFilmByAktor(ListRelasi LR, adrAktor a) {
     }
 }
 
-// nevy 
 void showAktorByFilm(ListRelasi LR, adrFilm f) {
     adrRelasi r = LR.first; 
     cout << "Aktor / Aktris pada film : " << f -> info.judul << endl; 
@@ -330,7 +306,6 @@ void showAktorByFilm(ListRelasi LR, adrFilm f) {
     }
 }
 
-// nevy 
 int countFilmByAktor(ListRelasi LR, adrAktor a) {
     int count = 0; 
     adrRelasi r = LR.first; 
@@ -345,7 +320,6 @@ int countFilmByAktor(ListRelasi LR, adrAktor a) {
     return count; 
 }
 
-// nevy 
 int countAktorByFilm(ListRelasi LR, adrFilm f) {
     int count = 0; 
     adrRelasi r = LR.first; 
@@ -359,7 +333,6 @@ int countAktorByFilm(ListRelasi LR, adrFilm f) {
     return count; 
 }
 
-// aila
 void showAktorDanAktrisTerTop(ListAktor LA, ListRelasi LR) { 
      adrAktor topAktor = NULL;
     adrAktor topAktris = NULL;
