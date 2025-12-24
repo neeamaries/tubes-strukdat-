@@ -150,7 +150,7 @@ int main() {
 
                 if (findFilm(LF, f.idFilm) == NULL){
                     insertLastFilm(LF, newFilm(f)); 
-                    cout << "Berhasil menambahkan data film menggunakan insert first! \n"; 
+                    cout << "Berhasil menambahkan data film menggunakan insert last! \n"; 
                 } else {
                     cout << "Gagal menambahkan data film. ID film sudah ada \n"; 
                 } break; 
@@ -177,17 +177,30 @@ int main() {
                 cout << "\n===== MENGHAPUS AKTOR / AKTRIS BERDASARKAN ID =====\n";
                 string id; 
                 cout << "ID Aktor: "; cin >> id; 
-                deleteAktorByID(LA, LR, id); 
-                cout << "Data aktor berserta relasinya berhasil dihapus!. \n"; 
+                
+                adrAktor a = findAktor(LA, id);
+                if (a != NULL) {
+                    deleteAktorByID(LA, LR, id); 
+                    cout << "Data aktor beserta relasinya berhasil dihapus!\n"; 
+                } else {
+                    cout << "Aktor tidak ditemukan.\n";
+                }
                 break; 
             }
+
 
             case 7: {
                 cout << "\n===== MENGHAPUS FILM BERDASARKAN ID =====\n";
                 string id; 
                 cout << "ID Film: "; cin >> id; 
-                deleteFilmByID(LF, LR, id); 
-                cout << "Data film beserta relasinya berhasil dihapus! \n"; 
+
+                adrFilm f = findFilm(LF, id);
+                if (f != NULL) {
+                    deleteAktorByID(LA, LR, id); 
+                    cout << "Data film beserta relasinya berhasil dihapus!\n"; 
+                } else {
+                    cout << "Film tidak ditemukan.\n";
+                }
                 break; 
             }
 
